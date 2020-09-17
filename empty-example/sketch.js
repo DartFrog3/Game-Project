@@ -16,4 +16,6 @@ function draw(){
   fill("green");
   ellipse(400,340,15,15);
   ellipse(450,340,15,15);
+
+  arc(60, 50, 50, 50, 70, 290);
 }
