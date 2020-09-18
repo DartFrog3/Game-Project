@@ -1,48 +1,50 @@
-//create a variable to hold one ball
 let b;
-let anotherBall;
-let thirdBall;
-let fourthBall;
+let c;
+let d
+let e;
 
 function setup() {
   createCanvas(800, 400);
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"yellow");
-  thirdBall = new Ball(100,150, "orange");
-  fourthBall = new Ball(200,300, "purple");
+  b = new hyper(0, 100,"red"); //make a new ball from the Ball class and call it b.
+  c = new hyper (200, 200, "blue");
+  d = new hyper(50, 50, "green");
+  e = new perfectCircle(20, 20, 20);
+
+
 }
 
 
 function draw(){
 	background("blue");
-    b.drawBall(); //draw the ball called b (go look in the Ball class for the drawBall function)
-    b.moveBall(); //move the ball called b (go look in the Ball class for the moveBall function)
-    anotherBall.drawBall();
-    anotherBall.moveBall();
-    thirdBall.drawBall();
-    thirdBall.moveBall();
-    fourthBall.drawBall();
-    fourthBall.moveBall();
+  b.drawHyper();
+  b.moveHyper();
+  c.drawHyper();
+  c.moveHyper();
+  d.drawHyper();
+  d.moveHyper();
+  e.drawCircle();
+  e.moveCircle();
+
 
 }
 
 
 //ball class from which to create new balls with similar properties.
-class Ball {
+class hyper {
 
-	constructor(x,y,color){ //every ball needs an x value and a y value
+	constructor(x,y,hyperColor){ //every ball needs an x value and a y value
 		    this.x = x;
     		this.y = y;
-        this.color= color;
+        this.hyperColor= hyperColor;
 	}
-	drawBall(){  // draw a ball on the screen at x,y
+	drawHyper(){  // draw a ball on the screen at x,y
     		stroke(0);
-    		fill(this.color);
-		    hypercube(this.x,this.y,10,10);
+    		fill(this.hyperColor);
+		    hypercube(this.x,this.y);
 	}
-	moveBall(){ //update the location of the ball, so it moves across the screen
-		this.x = this.x+2;
-		this.y = this.y+.5;
+	moveHyper(){ //update the location of the ball, so it moves across the screen
+		this.x++;
+		this.y++;
 	}
 }
   function hypercube_1(x,y) {
@@ -84,4 +86,23 @@ class Ball {
 }
 function hypercube(x,y) {
 hypercube_1(x+2.5,y+2.5);
+}
+
+class perfectCircle {
+
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+
+  drawCircle() {
+    ellipse(this.x, this.y, this.r, this.r);
+  }
+
+  moveCircle() {
+    this.x++;
+    this.y++;
+    this.r++;
+  }
 }
