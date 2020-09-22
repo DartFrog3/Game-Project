@@ -5,13 +5,12 @@ let balls = [];
 let me;
 
 let mySound;
-
-let mySound2
+let mySecondSound;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  mySound = loadSound('boing1.mp3');
-  mySound2=loadSound('warhorn.wav');
+  mySound = loadSound('smack.wav');
+  mySecondSound = loadSound('warhorn.wav');
 
   }
 
