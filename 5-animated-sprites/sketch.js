@@ -10,7 +10,7 @@ function preload() {
 //
 //   //create an animation from a sequence of numbered images
 //   //pass the first and the last file name and it will try to find the ones in between
-  cow = loadAnimation('assets/cow001.png','assets/cow002.png', 'assets/cow003.png','assets/cow004.png', 'assets/cow005.png');
+  cow = loadAnimation('assets/cow001.png','assets/cow002.png', 'assets/cow003.png','assets/cow004.png', 'assets/cow005.png', 'assets/cow006.png', 'assets/cow007.png');
 
 }
 
