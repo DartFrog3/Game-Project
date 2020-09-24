@@ -4,20 +4,24 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
+let crowd;
 let mySound;
 let mySecondSound;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
   mySound = loadSound('smack.wav');
-  mySecondSound = loadSound('warhorn.wav');
+  mySecondSound = loadSound('boing1.mp3');
 
   }
 
 function setup() {
   createCanvas(500, 400);
-  mySound2.setVolume(0.1);
-  mySound2.play();
+  mySecondSound.setVolume(0.1);
+  mySecondSound.play();
+
+  crowd = createSprite(600, 200, 50, 100);
+  crowd.addAnimation('floating', 'assets/crowd.png');
 
 
   //make one avatar called me
@@ -80,16 +84,21 @@ class Avatar {
 	moveMe(){
     if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
        this.y -= this.speed;
+       crowd.position.y -= crowd.position.y;
+
     }
 
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
+        crowd.position.y += crowd.position.y;
     }
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= this.speed;
+      crowd.position.x -= crowd.position.x;
     }
     if (keyIsDown(RIGHT_ARROW)) {
       this.x += this.speed;
+      crowd.position.x += crowd.position.x;
     }
 	}
 

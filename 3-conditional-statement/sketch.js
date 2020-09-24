@@ -3,12 +3,18 @@ let balls = [];
 
 //create a variable to hold your avatar
 let me;
-
+let crowd;
 let hits = [];
 
+function preload() {
+  crowd = loadAnimation('assets/crowd.png', 'assets/crowd.png')
+}
 
 function setup() {
   createCanvas(500, 400);
+
+  crowd = createSprite(100, 100, 50, 100);
+  animation(crowd, 50, 50);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -59,21 +65,24 @@ class Avatar {
         line(this.x-10, this.y+25, this.x+10, this.y+35);
 	}
 
-	moveMe(){
+  moveMe(){
     if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
        this.y -= this.speed;
+       crowd.position.y -= crowd.position.y;
+
     }
 
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
+        crowd.position.y += crowd.position.y;
     }
-
-    if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
-        this.x += this.speed;
+    if (keyIsDown(LEFT_ARROW)) {
+      this.x -= this.speed;
+      crowd.position.x -= crowd.position.x;
     }
-
-    if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
-        this.x -= this.speed;
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.x += this.speed;
+      crowd.position.x += crowd.position.x;
     }
 	}
 
